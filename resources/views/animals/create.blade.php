@@ -2,7 +2,7 @@
 
 @section('content')
     @csrf
-<form action="/storeAnimal" method="POST">
+<form action="storeAnimal" method="POST">
     <div>
         <label for="name">Nom du film</label>
         <input type="text" name="name" placeholder="Nom..." required>

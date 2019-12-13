@@ -21,7 +21,7 @@ class AnimalsController extends Controller
         return view('animals.create', compact('breeds'));
     }
 
-    public function storeAnimal(Request $request)
+    public function store(Request $request)
     {
         $animal = new Animal([
             "name" => $request->name,

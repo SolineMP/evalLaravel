@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/animals', 'AnimalsController@showAnimals')->name('animals');
 route::get('/createAnimal', 'AnimalsController@createAnimal')->name('createAnimal');
-Route::post('/storeAnimal', 'AnimalsController@storeAnimal')->name('storeAnimal');
+Route::post('/storeAnimal', 'AnimalsController@store')->name('storeAnimal');
 Route::post('/edit/{id}', 'AnimalsController@edit')->name('editAnimal');
 Route::post('/updateAnimal/{id}', 'AnimalsController@update')->name('updateAnimal');
 Route::post('/deleteAnimal/{id}', 'AnimalsController@deleteAnimal')->name('deleteAnimal');
