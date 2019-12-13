@@ -29,12 +29,12 @@
                         <button type="submit">Modifier</button>
                     </form>    
                 </td> 
-{{--                 <td>
+                <td>
                     <form action="{{ route('deleteAnimal', $animal->id) }}" method="POST">
                         @csrf 
                         <button type="submit">Supprimer</button>    
                     </form>    
-                </td>  --}}     
+                </td> 
         </tr>
         @endforeach
     </tbody>

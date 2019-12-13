@@ -1,6 +1,7 @@
 @extends('layouts.template')
 
 @section('content')
+
 <form action="{{ route('updateAnimal', $animal->id)}}" method="POST">
         @csrf
         <div>
@@ -20,13 +21,17 @@
             <input type="text" name="weight" placeholder="Poids..." value="{{ $animal->weight}}" required>
         </div>
         <div>
+            <label for="height">Taille</label>
+            <input type="text" name="height" placeholder="Taille..." value="{{ $animal->height}}" required>
+        </div>
+        <div>
             <label for="breed_id">Race</label>
             <select name="breed_id" id="breed" required>
                 @foreach($breeds as $breed)
                     @if($breed->name == $animal->breed->name) 
                         <option selected value="{{ $breed->id }}">{{$breed->name}}</option>
                     @else
-                        <option value="{{ $breed>id }}">{{ $breed->name }}</option>
+                        <option value="{{ $breed->id }}">{{ $breed->name }}</option>
                     @endif 
 
                 @endforeach

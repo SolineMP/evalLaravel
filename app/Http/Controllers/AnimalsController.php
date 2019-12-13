@@ -17,9 +17,25 @@ class AnimalsController extends Controller
 
     public function createAnimal()
     {
-        $breeds = Genre::All();
+        $breeds = Breed::All();
         return view('animals.create', compact('breeds'));
     }
+
+    public function storeAnimal(Request $request)
+    {
+        $animal = new Animal([
+            "name" => $request->name,
+            "sex" => $request->sex,
+            "age" => $request->age,
+            "weight" => $request->weight,
+            "height" => $request->height,
+            "breed_id" => $request->breed_id,
+            ]);
+            
+            $animal->save();                               
+            return redirect('/animals');
+    }
+
     public function edit($id)
     {
         $animal = Animal::find($id); 
@@ -29,7 +45,6 @@ class AnimalsController extends Controller
 
     public function update(Request $request, $id)
     {
-        // recherche du film dans la table movies
         $animal = Animal::find($id); 
         $animal->name = $request->name;
         $animal->sex = $request->sex;
@@ -40,5 +55,13 @@ class AnimalsController extends Controller
 
         $animal->save();
         return redirect('/animals'); 
+    }
+
+    public function deleteAnimal($id)
+    {
+        $movie = Animal::find($id);
+        $movie->delete();
+
+        return redirect('/animals');
     }
 }
